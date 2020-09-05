@@ -1,13 +1,18 @@
 <div class="form-group">
-    <label class="d-block"> {{ $label ?? "" }}
-    <input type="{{ $type ?? "text" }}" 
-           class="form-control" 
-           name="{{ $name?? "input"}}"
+    <label class="d-block"> 
+        {{ $label ?? "" }}
+    <input type="{{ $type ?? 'text' }}" 
+           class="form-control {{ ($errors->first($name))?'is-invalid':''}}"
+           name="{{ $name?? 'input'}}"
            value="{{ $value ?? old($name) }}"
            placeholder="{{ $placeholder ?? ""}}">
     </label>
-    
-    @if(isset($message))
-        <small class="form-text text-muted">{{ $message }}</small>
+
+    @if($errors->any())  
+        <p class="invalid-feedback d-block">
+            {{  $errors->first($name) }}  
+        </p>
     @endif
+
+    
 </div>

@@ -20,7 +20,7 @@
                 </x-textarea>
 
                 <div class="form-group mx-auto">
-                    <button type="reset" class="btn btn-danger">Cancel</button>
+                    <a href="{{ route("task.index") }}" class="btn btn-danger">Cancel</a>
                     <button type="submit" class="btn btn-success">Save</button>
                 </div>
             </form>
